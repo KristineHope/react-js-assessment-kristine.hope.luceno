@@ -1,9 +1,49 @@
-.nav{
-    border-radius: 30px;
-    background-color: lavender;
-    padding:  10px 25px ;
-    max-width: 100%;
-    width: 2000px;
-    height: 10vh;
-    align-items: flex-end;
+.nav {
+  border-radius: 30px;
+  background-color: lavender;
+  padding: 10px 25px;
+  max-width: 100%;
+  width: 2000px;
+  height: 10vh;
+  align-items: column;
+  color: white;
+}
+
+.table-text {
+  color: white;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: medium;
+  font-weight: bold;
+  justify-content: space-between;
+  background-color: goldenrod;
+  border-radius: 10px;
+  color: white;
+}
+.logo{
+  padding-left: 20px;
+  margin-top: 0;
+  font-size: 50px;
+  color: white;
+  font-weight:bold;
+  font-style: oblique;
+  border: black;
+  
+}
+li{
+  padding: 10px;
+  display: inline;
+  font-size: 20px;
+  color: white;
+}
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  
 }

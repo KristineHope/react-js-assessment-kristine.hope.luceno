@@ -1,5 +1,9 @@
-.carousel.item{
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.carousel.item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.table-text {
+    color: white;
 }

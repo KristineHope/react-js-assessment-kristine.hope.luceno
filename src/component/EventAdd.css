@@ -1,67 +1,63 @@
-.container{
-    padding: 20px 20px;
-    background-image: url(/public/dark-purple-gradient-fluid-abstract-shapes-background.jpg);
-    justify-content: center;
-    height: 80vh;
-    max-width: 600px;
-    width: 100%;
-    margin-top: 0;
-    position: left;
-    align-items:center;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    background: white
-    
+.container {
+  padding: 20px 20px;
+  justify-content: center;
+  height: 80vh;
+  max-width: 700px;
+  width: 100%;
+  margin-top: 0;
+  position: left;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: linear-gradient(rgb(204, 140, 204));
 }
-.container .main{
-    font-size: 15px;
-    font-weight: 500;  
+.container .main {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
 }
-input{
-    width: 250px;
-    height: 30px;
-    position:relative;
-    padding-left: 10px;
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
+input {
+  width: 250px;
+  height: 30px;
+  position: relative;
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
 }
-.field{
-    padding: 0px 0 0 0px;
-    font-size: 5px;
-    font-style: normal;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
+.field {
+  padding: 0px 0 0 0px;
+  font-size: 5px;
+  font-style: normal;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
 }
-.add-button{
-    padding: 0px 0 0 0px ;
-    width: 500px;
-    height: 50px;
-    margin-top: 15px;
-    
+.add-button {
+  padding: 0px 0 0 0px;
+  width: 500px;
+  height: 50px;
+  margin-top: 15px;
 }
-.col-sm{
-    font-size: 10px;
-    font-style: normal;
-    font-weight: bold; 
-    padding: 5px;
-    margin-bottom: 0.5rem;
-    
+.col-sm {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: bold;
+  padding: 5px;
+  margin-bottom: 0.5rem;
 }
-.col-sm-7{  
-    font-size: 10px;
-    font-style: normal; 
-    font-weight: bold;
-    padding: 10px;
+.col-sm-7 {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: bold;
+  padding: 10px;
 }
-.row g-3{
-    padding-top: 0%;
+.row g-3 {
+  padding-top: 0%;
 }
-label{
-    font-size: 15px;
-    font-weight: 500;  
+label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
 }
-
-

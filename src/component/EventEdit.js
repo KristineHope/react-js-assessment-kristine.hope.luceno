@@ -1,61 +1,39 @@
-import React, { useState } from 'react'
-// import { getApp } from 'firebase/app'
-import { toast } from 'react-toastify'
+import { useState, useEffect } from 'react'
 import { db } from '../firebase'
-import { set, ref } from 'firebase/database'
-import { v4 as uuidv4 } from 'uuid'
-import { useNavigate } from 'react-router-dom'
+import { ref, update } from 'firebase/database'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 
-import './EventAdd.css'
-
-const initialState = {
-  name: '',
-  performer: '',
-  venue: '',
-  date: '',
-  time: '',
-  description: '',
-}
-
-const EventAdd = () => {
-  const [state, setState] = useState(initialState)
-  const [data, setData] = useState({})
+const EventEdit = () => {
+  const { id } = useParams()
   const navigate = useNavigate()
+  const [name, setName] = useState('')
+  const [performer, setPerformer] = useState('')
+  const [venue, setVenue] = useState('')
+  const [date, setDate] = useState('')
+  const [time, setTime] = useState('')
+  const [description, setDescription] = useState('')
 
-  const { name, performer, venue, date, time, description } = state
-
-  const handleAddSubmit = (e) => {
+  const handleEditSubmit = (e) => {
     e.preventDefault()
-    if (!name || !performer || !venue || !date || !time || !description) {
-      toast.error('Please provide value in each field')
-    } else {
-      const uuid = uuidv4()
-      set(ref(db, `/${uuid}`), {
-        event: state,
-        id: uuid,
-      })
-
-      setState('')
-      navigate('/')
-      // getApp.child('events').push(state, (err) => {
-      //   if (err) {
-      //     toast.error(err)
-      //   } else {
-      //     toast.success('Event Added Successfully')
-      //   }
-      // })
+    const dataPayload = {
+      name,
+      performer,
+      venue,
+      date,
+      time,
+      description,
     }
-  }
-
-  const onChange = (e) => {
-    const { name, value } = e.target
-    setState({ ...state, [name]: value })
+    update(ref(db, `/${id}`), {
+      event: dataPayload,
+      uuid: id,
+    })
+    navigate('/eventlist')
   }
 
   return (
-    <div className='container'>
-      <form onSubmit={handleAddSubmit} className='main'>
-        <h1>Event Form</h1>
+    <div style={{ background: 'white', padding: 15 }}>
+      <h3>Event Edit Form</h3>
+      <form onSubmit={handleEditSubmit} className='main'>
         <div className='row g-3'>
           <div className='col'>
             <label htmlFor='Name' class='form-label'>
@@ -68,7 +46,7 @@ const EventAdd = () => {
               type='text'
               placeholder='Input Details'
               value={name}
-              onChange={onChange}
+              onChange={(e) => setName(e.target.value)}
               required='required'
             />
           </div>
@@ -83,7 +61,7 @@ const EventAdd = () => {
               className='form-control'
               type='text'
               required='required'
-              onChange={onChange}
+              onChange={(e) => setPerformer(e.target.value)}
               placeholder='Type Name'
             />
           </div>
@@ -99,7 +77,7 @@ const EventAdd = () => {
             className='form-control'
             type='place'
             required='required'
-            onChange={onChange}
+            onChange={(e) => setVenue(e.target.value)}
             placeholder='Type Name'
           />
         </div>
@@ -111,7 +89,7 @@ const EventAdd = () => {
               id='date'
               value={date}
               type='date'
-              onChange={onChange}
+              onChange={(e) => setDate(e.target.value)}
               className='form-control'
               required='required'
             />
@@ -123,7 +101,7 @@ const EventAdd = () => {
               id='time'
               value={time}
               type='time'
-              onChange={onChange}
+              onChange={(e) => setTime(e.target.value)}
               className='form-control'
               required='required'
             />
@@ -139,22 +117,24 @@ const EventAdd = () => {
               type='text'
               rows='4'
               className='form-control'
-              onChange={onChange}
+              onChange={(e) => setDescription(e.target.value)}
               required='required'
             />
           </div>
         </div>
         <div className='add-button '>
           <button className='btn btn-primary' type='submit'>
-            Add Event
-          </button>{' '}
-          <button className='btn btn-secondary' type='submit'>
-            Cancel
+            Submit
           </button>
+          <Link to='/eventlist'>
+            <button className='btn btn-secondary' type='submit'>
+              Cancel
+            </button>
+          </Link>
         </div>
       </form>
     </div>
   )
 }
 
-export default EventAdd
+export default EventEdit
